@@ -32,3 +32,7 @@ form button {
   background-color: #4056A1;
   color: #ffffff;
 }
+
+.negative {
+  color: red;
+}
