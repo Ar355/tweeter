@@ -1,0 +1,22 @@
+nav {
+  font-family: 'Bungee', cursive, sans-serif; 
+}
+
+
+nav span {
+  font-family: 'Bungee';
+  margin: 1.5em;
+  font-weight: 700;
+}
+
+span:nth-child(2) {
+ 
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #4056A1;
+  color: #ffffff;
+  height: 120px;
+}

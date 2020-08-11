@@ -1,0 +1,20 @@
+header {
+  height: 400px;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  
+}
+
+header {
+  background-color: #f3b408d0;
+}
+
+header h2 {
+  color: whitesmoke;
+}
