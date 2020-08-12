@@ -3,7 +3,7 @@ header {
   width: 100%;
 }
 
-header {
+header div {
   display: flex;
   flex-direction: column;
   justify-content:center;
@@ -11,10 +11,10 @@ header {
   
 }
 
-header {
+header div {
   background-color: #f3b408d0;
 }
 
-header h2 {
+header div h2 {
   color: whitesmoke;
 }
