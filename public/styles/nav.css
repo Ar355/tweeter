@@ -1,5 +1,7 @@
 nav {
   font-family: 'Bungee', cursive, sans-serif; 
+
+
 }
 
 
@@ -9,11 +11,13 @@ nav span {
   font-weight: 700;
 }
 
-span:nth-child(2) {
- 
-}
 
 nav {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   background-color: #4056A1;

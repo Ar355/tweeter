@@ -1,15 +1,19 @@
 header {
+  margin-top: 120px;
   height: 400px;
   width: 100%;
 }
 
 header div {
+ 
   display: flex;
   flex-direction: column;
   justify-content:center;
   align-items: center;
   
 }
+
+ 
 
 header div {
   background-color: #f3b408d0;
