@@ -4,64 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 /// find the time sice the post
-const timeSince = function (date) {
-  let seconds = Math.floor((new Date() - date) / 1000);
-
-  let interval = seconds / 31536000;
-
-  if (interval > 1) {
-    return `${Math.floor(interval)} years`;
-  }
-  interval = seconds / 2592000;
-  if (interval > 1) {
-    return `${Math.floor(interval)} months`;
-  }
-  interval = seconds / 86400;
-  if (interval > 1) {
-    return `${Math.floor(interval)} days`;
-  }
-  interval = seconds / 3600;
-  if (interval > 1) {
-    return `${Math.floor(interval)} hours`;
-  }
-  interval = seconds / 60;
-  if (interval > 1) {
-    return `${Math.floor(interval)} minutes`;
-  }
-  return `${Math.floor(seconds)} seconds`;
-};
-
-const aDay = 24 * 60 * 60 * 1000;
 
 
-const data = [
-  {
-    user: {
-      name: 'Newton',
-      avatars: 'https://i.imgur.com/73hZDYK.png',
-      handle: '@SirIsaac',
-    },
-    content: {
-      text:
-        'If I have seen further it is by standing on the shoulders of giants',
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: 'Descartes',
-      avatars: 'https://i.imgur.com/nlhLi3I.png',
-      handle: '@rd',
-    },
-    content: {
-      text: 'Je pense , donc je suis',
-    },
-    created_at: 1461113959088,
-  }
-];
+
 // function for creatin a new element
 const createTweetElement = (obj) => {
-  // const date = moment (obj.created_at, 'YYYYMMDD').fromNow();
+  console.log(obj.created_at);
+  const date = moment (obj.created_at).fromNow();
+
   const objUsr = obj.user;
   const $tweet = `<article class='new-tweet'>
                     <header>
@@ -71,7 +21,7 @@ const createTweetElement = (obj) => {
                     </header>
                     <p class="tweet-text">${obj.content.text}</p>
                     <footer>
-                      <p>${'2date'}</p>
+                      <p>${date}</p>
                     </footer>
                   </article>`;
 
@@ -87,18 +37,36 @@ const renderTweets = function (array) {
   }
 };
 
-
-
 $(document).ready(function () {
 ///  serialize method form
   $('#submit-tweet').submit(function (event) {
-    const variable = $('#submit-tweet').serialize();
-    event.preventDefault()
+    const $tweetText = $('#submit-tweet').serialize();
+    event.preventDefault();
+    /// Form Validation
+    if ($tweetText.length > 140) {
+      alert('The tweet content is too long');
+    } else if (
+      $tweetText === '' ||
+      $tweetText === null ||
+      $tweetText.length <= 5
+    ) {
+      alert('Please tweet something before submitig');
+    }
+    /// Submition tweets
+    // $.post('/tweets', $tweetText).then((response) => {
+    //   console.log(response);
 
-    $.post('/tweets', variable).then((res) => {
-      console.log(res);
-    });
-  })
+    //  renderTweets(response);
+    // });;
+    console.log("print this");
+    $.ajax({url:'/tweets', type: 'POST',data: $tweetText}).then((response) => {
+      console.log("completed");
+      $('#tweet-container').empty();
+      loadTweets();
+    })
+
+  });
+    
   /// fetching tweets
   const loadTweets = function () {
     $.ajax({ url: 'http://localhost:8080/tweets', method: 'GET' }).then(
