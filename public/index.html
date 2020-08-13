@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
    
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" 
-    type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
@@ -24,7 +23,6 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
   </head>
-
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
@@ -43,7 +41,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+        <form id="submit-tweet">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
@@ -51,20 +49,7 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-        <div id="tweet-container">
-          <article>
-            <header>
-              <h1>Xhemal Pisha</h1>
-              <h2>@pisha</h2>
-            </header>
-            <p class="tweet-text">Thjesht po shkruaj ca gjera futja kot dmth</p>
-            <footer>
-              <p>posted on 
-                <time datetime="2020-08-11 17:00">Aug 11</time>
-              </p>
-            </footer>
-          </article>
-        </div>
+        <div id="tweet-container"></div>
       </section>
     </main>
   </body>

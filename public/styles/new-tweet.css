@@ -56,13 +56,13 @@ article header {
 }
 
 article header h1 {
-  font-family: 'Source Sans Pro', cursive, sans-serif;
+  /* font-family: 'Source Sans Pro', cursive, sans-serif; */
   font-weight: 200;
   font-size: 1em;
 }
 
 article header h2 {
-  font-family: 'Source Sans Pro', cursive, sans-serif;
+  /* font-family: 'Source Sans Pro', cursive, sans-serif; */
   font-weight: 200;
   font-size: 1em;
   color: #f4f1ec;
@@ -78,20 +78,17 @@ article header h2 {
 
 article footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 98%;
-  margin: 0 auto;
-}
-
-article footer {
+  padding: 0px 10px;
   font-size: 0.65em;
 }
+ 
 
 #tweet-container:hover {
   box-shadow: 3px 3px 5px 6px #ccc
 }
 
-article header h2:hover {
+#tweet-container:hover article header h2 {
   color: rgb(131, 143, 161);
-}
-
+} 
