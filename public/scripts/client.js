@@ -21,7 +21,7 @@ const createTweetElement = (obj) => {
                        <img src='${escape(objUsr.avatars)}'/>
                        <span>${escape(objUsr.name)}</span>
                       </div>
-                       <span id='handle'>${escape(objUsr.handle)}</san>
+                      <span id='handle'>${escape(objUsr.handle)}</san>
                     </header>
                     <p class="tweet-text">${escape(obj.content.text)}</p>
                     <footer>
@@ -30,7 +30,6 @@ const createTweetElement = (obj) => {
                       <img src='${'./images/like.png'}'/>
                       <img src='${'./images/map-location.png'}'/>
                       <img src='${'./images/retweet.png'}'/>
-                      
                       </div>
                     </footer>
                   </article>`;
@@ -53,32 +52,31 @@ $(document).ready(function () {
     $('.compose-tweet').slideToggle('slow');
     $('#tweet-text').focus();
     $('#tweet-text').mousemove();
-
   });
 
-  // default Error message 
-  $('#error-mssg1').hide();
-  $('#error-mssg2').hide();
-  
-  
+  // default Error message
+  $('#error-mssg1').hide(); // more than 140char
+  $('#error-mssg2').hide(); // emtpy text
 
   ///  serialize method form
   $('.compose-tweet').submit(function (event) {
     const $tweetText = $('.compose-tweet').serialize();
     event.preventDefault();
+    
     /// Form Validation error when empty text or >140
-    if ($tweetText.length >= 145) {
-      $('#error-mssg1').show();
-      return false;
-    } 
-      $('#error-mssg1').hide();
-    ;
     if ($tweetText === '' || $tweetText === null || $tweetText.length <= 5) {
       $('#error-mssg2').show();
       return false;
     } else {
       $('#error-mssg2').hide();
-    };
+    }
+    if ($tweetText.length >= 145) {
+      $('#error-mssg1').show();
+      return false;
+    } else {
+      $('#error-mssg1').hide();
+    }
+
     /// postin tweets
     $.ajax({ url: '/tweets', type: 'POST', data: $tweetText }).then(
       (response) => {

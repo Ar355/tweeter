@@ -1,7 +1,5 @@
 form {
   display: block;
-  
-  
 }
 
 form textarea {
@@ -10,7 +8,6 @@ form textarea {
   background-color: inherit;
   resize: none;
   font-size: 0.75em;
- 
 }
 
 textarea:focus, input:focus {
@@ -53,33 +50,26 @@ article header {
 
 }
 
-/* #avat-conteinar {
- display: flex;
- justify-content: flex-start;
-} */
-
-
-article header h1 {
-  /* font-family: 'Source Sans Pro', cursive, sans-serif; */
-  font-weight: 200;
-  font-size: 1em;
+article header div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color:inherit ;
 }
 
 #handle {
-  /* font-family: 'Source Sans Pro', cursive, sans-serif; */
   font-weight: 200;
   font-size: 1em;
   color: #f4f1ec;
-  
 }
 
- .tweet-text {
+
+.tweet-text {
   margin: 0 auto;
   padding-bottom: 2em;
   width: 98%;
   border-bottom: 4px solid black;
   word-wrap: break-word
-  
 }
 
 article footer {
@@ -92,6 +82,11 @@ article footer {
   font-size: 0.5em;
 }
  
+footer div img {
+  height: 20px;
+  width: 20px;
+  
+}
 
 #tweet-container:hover {
   box-shadow: 3px 3px 5px 6px #ccc
@@ -106,12 +101,6 @@ article footer {
 
 } 
 
-article header div {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  background-color:inherit ;
-}
 
 #error-mssg1, #error-mssg2 {
   border: 1px solid;
@@ -124,8 +113,3 @@ article header div {
   background-color: #FFBABA;
 }
 
-footer div img {
-  height: 20px;
-  width: 20px;
-  
-}

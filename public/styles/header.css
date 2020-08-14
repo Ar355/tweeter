@@ -7,13 +7,11 @@ header {
 
 
 header div {
- 
   display: flex;
   flex-direction: column;
   justify-content:center;
   align-items: center;
   background-color: #f3b408d0;
-  
 }
 
  
@@ -26,5 +24,4 @@ header div h2 {
     width: 400px;
     height: 400px;
   }
-
 }
