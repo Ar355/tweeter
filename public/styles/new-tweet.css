@@ -26,9 +26,7 @@ form div {
   justify-content:space-between;
 }
 
-form button {
-  
- 
+form button { 
   background-color: #4056A1;
   color: #ffffff;
 }
@@ -55,13 +53,19 @@ article header {
 
 }
 
+/* #avat-conteinar {
+ display: flex;
+ justify-content: flex-start;
+} */
+
+
 article header h1 {
   /* font-family: 'Source Sans Pro', cursive, sans-serif; */
   font-weight: 200;
   font-size: 1em;
 }
 
-article header h2 {
+#handle {
   /* font-family: 'Source Sans Pro', cursive, sans-serif; */
   font-weight: 200;
   font-size: 1em;
@@ -80,10 +84,12 @@ article header h2 {
 
 article footer {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 98%;
   padding: 0px 10px;
-  font-size: 0.65em;
+  font-size: 0.5em;
 }
  
 
@@ -91,10 +97,21 @@ article footer {
   box-shadow: 3px 3px 5px 6px #ccc
 }
 
-#tweet-container:hover article header h2 {
+#tweet-container:hover #handle {
   color: rgb(131, 143, 161);
 } 
 
+#tweet-container:hover footer div {
+  background-color: rgb(161, 196, 248);
+
+} 
+
+article header div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color:inherit ;
+}
 
 #error-mssg1, #error-mssg2 {
   border: 1px solid;
@@ -105,4 +122,10 @@ article footer {
 	background-position: 10px center;
   color: #D8000C;
   background-color: #FFBABA;
+}
+
+footer div img {
+  height: 20px;
+  width: 20px;
+  
 }

@@ -17,13 +17,21 @@ const createTweetElement = (obj) => {
   const objUsr = obj.user;
   const $tweet = `<article class='new-tweet'>
                     <header>
-                      <img src='${escape(objUsr.avatars)}'/>
-                      <span>${escape(objUsr.name)}</span>
-                      <h2>${escape(objUsr.handle)}</h2>
+                      <div>
+                       <img src='${escape(objUsr.avatars)}'/>
+                       <span>${escape(objUsr.name)}</span>
+                      </div>
+                       <span id='handle'>${escape(objUsr.handle)}</san>
                     </header>
                     <p class="tweet-text">${escape(obj.content.text)}</p>
                     <footer>
                       <p>${escape(date)}</p>
+                      <div>
+                      <img src='${'./images/like.png'}'/>
+                      <img src='${'./images/map-location.png'}'/>
+                      <img src='${'./images/retweet.png'}'/>
+                      
+                      </div>
                     </footer>
                   </article>`;
 
