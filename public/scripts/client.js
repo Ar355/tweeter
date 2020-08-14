@@ -14,7 +14,6 @@ const escape =  function(str) {
 // function for creatin a new element
 const createTweetElement = (obj) => {
   const date = moment (obj.created_at).fromNow();
-
   const objUsr = obj.user;
   const $tweet = `<article class='new-tweet'>
                     <header>
@@ -41,27 +40,31 @@ const renderTweets = function (array) {
 };
 
 $(document).ready(function () {
+  //compose button
+  $('.compose-button').on('click', function () {
+    $('.compose-tweet').slideToggle('slow');
+    $('#tweet-text').focus();
+    $('#tweet-text').mousemove();
+  });
+
+
 ///  serialize method form
-  $('#submit-tweet').submit(function (event) {
-    const $tweetText = $('#submit-tweet').serialize();
+  $('#error-mssg1').hide();
+  $('#error-mssg2').hide();
+  $('.compose-tweet').submit(function (event) {
+    const $tweetText = $('.compose-tweet').serialize();
     event.preventDefault();
     /// Form Validation
     if ($tweetText.length > 140) {
-      alert('The tweet content is too long');
+      $('#error-mssg1').show();
     } else if (
       $tweetText === '' ||
       $tweetText === null ||
       $tweetText.length <= 5
     ) {
-      alert('Please tweet something before submitig');
+       $('#error-mssg1').show();
     }
-    /// Submition tweets
-    // $.post('/tweets', $tweetText).then((response) => {
-    //   console.log(response);
-
-    //  renderTweets(response);
-    // });;
-    console.log("print this");
+    
     $.ajax({url:'/tweets', type: 'POST',data: $tweetText}).then((response) => {
       console.log("completed");
       $('#tweet-container').empty();

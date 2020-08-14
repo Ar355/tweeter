@@ -27,30 +27,40 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <span><b> Write </b> a new tweet</span>
+        <button class="compose-button"><b> Write </b> a new tweet</button>
+      </div>
     </nav>
-    <header>
-      <div>
-        <img src="/images/profile-hex.png">
-      </div>
-      <div>
-        <h2>Arian Zeneli</h2>
-      </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id="submit-tweet">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-        <div id="tweet-container"></div>
-      </section>
-    </main>
+    <div id="main-container">
+      <header id="main-header">
+        <div>
+          <img src="/images/profile-hex.png">
+        </div>
+        <div>
+          <h2>Arian Zeneli</h2>
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <div id="error-mssg1">Max characters allowed are 140, condens your though</div>
+          <div id="error-mssg2">You cannot do empty tweets, think of someghin before hiting tweet</div>
+        <section class="new-tweet">
+          <h2 class="compose-tweet">Compose Tweet</h2>
+          <form class="compose-tweet">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+          <div id="tweet-container"></div>
+        </section>
+      </main>
+      
+
+
+
+    </div>
+    
   </body>
 </html>
