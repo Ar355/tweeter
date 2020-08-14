@@ -6,7 +6,7 @@
 /// find the time sice the post
 
 /// Func for preventign SXX 
-const escape =  function(str) {
+const escape = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -32,7 +32,7 @@ const createTweetElement = (obj) => {
 
 // fucntion for appending each element of an array
 const renderTweets = function (array) {
-  // eslint-disable-next-line no-restricted-syntax
+ 
   for (const element of array) {
     const $tweet = createTweetElement(element);
     $('#tweet-container').prepend($tweet);
@@ -40,39 +40,46 @@ const renderTweets = function (array) {
 };
 
 $(document).ready(function () {
-  //compose button
+  // add animation hide/show to compose button
   $('.compose-button').on('click', function () {
     $('.compose-tweet').slideToggle('slow');
     $('#tweet-text').focus();
     $('#tweet-text').mousemove();
+
   });
 
-
-///  serialize method form
+  // default Error message 
   $('#error-mssg1').hide();
   $('#error-mssg2').hide();
+  
+  
+
+  ///  serialize method form
   $('.compose-tweet').submit(function (event) {
     const $tweetText = $('.compose-tweet').serialize();
     event.preventDefault();
-    /// Form Validation
-    if ($tweetText.length > 140) {
+    /// Form Validation error when empty text or >140
+    if ($tweetText.length >= 145) {
       $('#error-mssg1').show();
-    } else if (
-      $tweetText === '' ||
-      $tweetText === null ||
-      $tweetText.length <= 5
-    ) {
-       $('#error-mssg1').show();
-    }
-    
-    $.ajax({url:'/tweets', type: 'POST',data: $tweetText}).then((response) => {
-      console.log("completed");
-      $('#tweet-container').empty();
-      loadTweets();
+      return false;
+    } 
+      $('#error-mssg1').hide();
+    ;
+    if ($tweetText === '' || $tweetText === null || $tweetText.length <= 5) {
+      $('#error-mssg2').show();
+      return false;
+    } else {
+      $('#error-mssg2').hide();
+    };
+    /// postin tweets
+    $.ajax({ url: '/tweets', type: 'POST', data: $tweetText }).then(
+      (response) => {
+        $('#tweet-container').empty();
+        $('#tweet-text').val('');
+        loadTweets();
     })
 
   });
-    
   /// fetching tweets
   const loadTweets = function () {
     $.ajax({ url: 'http://localhost:8080/tweets', method: 'GET' }).then(

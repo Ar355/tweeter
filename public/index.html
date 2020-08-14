@@ -7,6 +7,8 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js" integrity="sha512-MKqdT8JgKftxlK6oK4S+Hh44ivKyaPncl6qN9JZEGKJGQZJMiSoPzehLcbvd/1XMieEP1Q4A3wzzhTrvBUUcUQ==" crossorigin="anonymous"></script>
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
@@ -28,7 +30,6 @@
     <nav>
       <span>tweeter</span>
         <button class="compose-button"><b> Write </b> a new tweet</button>
-      </div>
     </nav>
     <div id="main-container">
       <header id="main-header">
@@ -41,11 +42,11 @@
       </header>
       <!-- Page-specific (main) content here -->
       <main class="container">
-        <div id="error-mssg1">Max characters allowed are 140, condens your though</div>
-          <div id="error-mssg2">You cannot do empty tweets, think of someghin before hiting tweet</div>
+        <div id="error-mssg1">Max characters allowed are 140, condense your thoughts</div>
+        <div id="error-mssg2">You cannot do empty tweets, think of something before hinting tweet</div>
         <section class="new-tweet">
           <h2 class="compose-tweet">Compose Tweet</h2>
-          <form class="compose-tweet">
+          <form class="compose-tweet" name="tweets" >
             <label for="tweet-text">What are you humming about?</label>
             <textarea name="text" id="tweet-text"></textarea>
             <div>
@@ -56,11 +57,6 @@
           <div id="tweet-container"></div>
         </section>
       </main>
-      
-
-
-
     </div>
-    
   </body>
 </html>

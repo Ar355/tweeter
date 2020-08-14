@@ -74,6 +74,8 @@ article header h2 {
   padding-bottom: 2em;
   width: 98%;
   border-bottom: 4px solid black;
+  word-wrap: break-word
+  
 }
 
 article footer {
